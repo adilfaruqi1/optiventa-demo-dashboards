@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Optiventa Labs - Demo Dashboard Suite</title>
+      <style>
+                body { margin:0; font-family:system-ui,-apple-system,sans-serif; background:#f8fafc; color:#0f172a; display:flex; height:100vh; overflow:hidden; }
+                aside { width:260px; background:#0f172a; color:#fff; display:flex; flex-direction:column; justify-content:space-between; }
+                .brand { padding:24px; border-bottom:1px solid #1e293b; display:flex; align-items:center; gap:12px; }
+                .logo { width:32px; height:32px; background:#2563eb; border-radius:6px; display:flex; align-items:center; justify-content:center; font-weight:bold; }
+                nav { padding:24px 16px; display:flex; flex-direction:column; gap:8px; }
+                .btn { background:none; border:none; color:#94a3b8; padding:12px; border-radius:8px; text-align:left; font-size:14px; font-weight:600; cursor:pointer; }
+                .btn:hover, .btn.active { background:#1e293b; color:#fff; }
+                .btn.active { background:#2563eb; }
+                main { flex:1; display:flex; flex-direction:column; overflow-y:auto; }
+                header { height:64px; background:#fff; border-bottom:1px solid #e2e8f0; display:flex; align-items:center; justify-content:space-between; padding:0 32px; }
+                .container { padding:32px; display:flex; flex-direction:column; gap:24px; }
+                .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:24px; }
+                .card { background:#fff; padding:24px; border-radius:12px; border:1px solid #e2e8f0; display:flex; justify-content:space-between; }
+                .card h3 { font-size:24px; margin:8px 0; }
+                .trend { font-size:12px; color:#16a34a; font-weight:600; }
+                .chart-grid { display:grid; grid-template-columns:2fr 1fr; gap:24px; }
+                .chart-card { background:#fff; padding:24px; border-radius:12px; border:1px solid #e2e8f0; }
+                .placeholder { height:200px; background:#f1f5f9; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#64748b; font-weight:600; margin-top:16px; }
+                .hidden { display:none; }
+            </style>
+  </head>
+  <body>
+        <aside>
+                  <div>
+                                <div class="brand">
+                                                  <div class="logo">O</div>
+                                                  <div>
+                                                                        <h2 style="font-size:16px;">Optiventa Labs</h2>h2>
+                                                                        <span style="font-size:11px; color:#64748b;">Demo Suite</span>span>
+                                                  </div>
+                                </div>
+                                <nav>
+                                                  <button onclick="tab('dash')" class="btn active" id="btn-dash">Dashboard</button>button>
+                                                  <button onclick="tab('sales')" class="btn" id="btn-sales">Sales</button>button>
+                                                  <button onclick="tab('cust')" class="btn" id="btn-cust">Customers</button>button>
+                                </nav>
+                  </div>
+                  <div style="padding:20px; border-top:1px solid #1e293b; font-size:13px; color:#94a3b8;">Demo Viewer</div>
+        </aside>
+        <main>
+                  <header>
+                                <h2 id="title">Executive Dashboard</h2>h2>
+                                <span style="font-size:12px; color:#64748b;">v1.0 Live Demo</span>span>
+                  </header>
+                  <div class="container">
+                                <div id="tab-dash">
+                                                  <div class="grid">
+                                                                        <div class="card">
+                                                                                                  <div>
+                                                                                                                                <span style="font-size:11px; text-transform:uppercase; color:#64748b;">Revenue</span>span>
+                                                                                                                                <h3>$48,259.50</h3>
+                                                                                                                              <span class="trend">↑ 12.5% vs last month</span>span>
+                                                                                                    </div>
+                                                                        </div>
+                                                                      <div class="card">
+                                                                                              <div>
+                                                                                                                          <span style="font-size:11px; text-transform:uppercase; color:#64748b;">Active Users</span>span>
+                                                                                                                          <h3>3,842</h3>
+                                                                                                                          <span class="trend">↑ 8.2% vs last week</span>span>
+                                                                                                </div>
+                                                                      </div>
+                                                                      <div class="card">
+                                                                                              <div>
+                                                                                                                          <span style="font-size:11px; text-transform:uppercase; color:#64748b;">Conversion</span>span>
+                                                                                                                          <h3>2.84%</h3>
+                                                                                                                          <span class="trend" style="color:#dc2626;">↓ 0.4% vs last week</span>span>
+                                                                                                </div>
+                                                                      </div>
+                                                  </div>
+                                                <div class="chart-grid" style="margin-top:24px;">
+                                                                    <div class="chart-card">
+                                                                                            <h4>Monthly Revenue Trend</h4>
+                                                                                            <div class="placeholder">Revenue Analytics Chart</div>
+                                                                    </div>
+                                                                    <div class="chart-card">
+                                                                                            <h4>Category Share</h4>
+                                                                                            <div class="placeholder">Sales Share Breakdown</div>
+                                                                    </div>
+                                                </div>
+                                </div>
+                              <div id="tab-sales" class="hidden">
+                                              <div class="chart-card">
+                                                                  <h4>Quarterly Sales Performance</h4>
+                                                                  <div class="placeholder" style="height:300px;">Quarterly Sales Metrics and Projections</div>
+                                              </div>
+                              </div>
+                              <div id="tab-cust" class="hidden">
+                                              <div class="chart-card">
+                                                                  <h4>Acquisition Channels</h4>
+                                                                  <div class="placeholder" style="height:300px;">User Signups and Cohort Analysis</div>
+                                              </div>
+                              </div>
+                  </div>
+        </main>
+      <script>
+                function tab(name) {
+                              document.getElementById('tab-dash').classList.add('hidden');
+                              document.getElementById('tab-sales').classList.add('hidden');
+                              document.getElementById('tab-cust').classList.add('hidden');
+                              document.getElementById('tab-' + name).classList.remove('hidden');
+                              document.getElementById('btn-dash').classList.remove('active');
+                              document.getElementById('btn-sales').classList.remove('active');
+                              document.getElementById('btn-cust').classList.remove('active');
+                              document.getElementById('btn-' + name).classList.add('active');
+                              const titleMap = { dash: 'Executive Dashboard', sales: 'Sales Analytics', cust: 'Customer Insights' };
+                              document.getElementById('title').innerText = titleMap[name];
+                }
+      </script>
+  </body>
+</html>html>
+      </script></h3>/h3>
+                  </header>
+        </main>
+                                </nav>
+                                                  </div>
+                  </div>
+        </aside>
+  </body>
+      </style></title>
+  </head>
